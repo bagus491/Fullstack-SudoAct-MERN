@@ -29,8 +29,15 @@ const NewUser = (username,password,email) => {
 }
 
 
+//getUsers
+const GetUser = async(username) => {
+    return await Users.findOne({username})
+}
+
+//getUserById 
+const GetUserById = async(id) => {
+    return await Users.findOne({_id : id})
+} 
 
 
-
-
-module.exports = {VerifyUser,NewUser}
+module.exports = {VerifyUser,NewUser,GetUser,GetUserById}
