@@ -9,10 +9,14 @@ import {SettingPage} from '../src/Pages/SettingPage'
 import {WhislistPage} from '../src/Pages/WhislistPage'
 import {NotFoundPage} from '../src/Pages/NotFoundPage'
 
+//use
+import { AuthProvider } from './AuthContext'
+
 function App() {
   return (
   <div>
     <Router>
+      <AuthProvider>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
         <Route path='/login' element={<LoginPage />}></Route>
@@ -23,6 +27,7 @@ function App() {
         <Route path='/setting/:username' element={<SettingPage />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
+      </AuthProvider>
     </Router>
   </div>
   );
