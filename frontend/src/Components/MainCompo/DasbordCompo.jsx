@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react"
 import { CheckDasbord } from "../../utils"
 import { useNavigate, useParams } from "react-router-dom"
+import { NavigationTwo } from "../Reusable/NavigationTwo"
+import { Profile } from "../sub-compo/Profile"
+
 export const DasbordCompo = () => {
     const getToken = localStorage.getItem('uL_')
     const [getContent, setgetContent] = useState(true)
@@ -23,7 +26,8 @@ export const DasbordCompo = () => {
        {
         getContent ?   
         <div>
-
+            <NavigationTwo />
+            <Profile />
         </div>
          :
         

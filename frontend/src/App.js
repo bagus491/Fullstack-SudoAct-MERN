@@ -22,7 +22,7 @@ function App() {
         <Route path='/login' element={<LoginPage />}></Route>
         <Route path='/Register' element={<RegisterPage />}></Route>
         <Route path='/dasbord/:username' element={<DasbordPage />}></Route>
-        <Route path='/whislist/:username' element={<WhislistPage />}></Route>
+        <Route path='/whistlist/:username' element={<WhislistPage />}></Route>
         <Route path='/notepad/:username' element={<NotepadPage />}></Route>
         <Route path='/setting/:username' element={<SettingPage />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
