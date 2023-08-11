@@ -8,7 +8,17 @@ const HomeWeb = (req,res) => {
     try{
         res.send('hello world')
     }catch(error){
-        res.statu(500).json({msg : 'Internal Server Error'})
+        res.status(500).json({msg : 'Internal Server Error'})
+    }
+}
+
+
+//LoginPages
+const LoginPages = (req,res) => {
+    try{
+        res.send('LoginPages')
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 
@@ -19,5 +29,7 @@ const HomeWeb = (req,res) => {
 
 
 
+
+
 //export
-module.exports = {HomeWeb}
+module.exports = {HomeWeb,LoginPages}

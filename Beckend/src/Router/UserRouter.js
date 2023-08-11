@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 //import
-const  {HomeWeb} = require('../Controllers/UserController')
+const  {HomeWeb,LoginPages} = require('../Controllers/UserController')
 
 
 //router GET
 app.get('/',HomeWeb)
-
+//LoginPage
+app.get('/login',LoginPages)
 
 
 
