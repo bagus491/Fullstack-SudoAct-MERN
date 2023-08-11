@@ -2,14 +2,14 @@ const express = require('express')
 const app = express()
 //import
 const  {HomeWeb} = require('../Controllers/UserController')
-const {CheckedToken} = require('../Utils/Verify')
+const {CheckedToken,CheckedTokenLogin} = require('../Utils/Verify')
 //Auth
 const Auth = require('../Auth/Auth')
 
 //router GET
 app.get('/',HomeWeb)
 //LoginPage
-app.get('/login/:username',CheckedToken)
+app.get('/login',CheckedTokenLogin)
 
 //dasbord
 app.get('/dasbord/:username',CheckedToken)

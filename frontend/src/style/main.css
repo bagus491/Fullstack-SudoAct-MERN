@@ -167,6 +167,42 @@
     order: 1;
   }
 }
+.login-page {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80vh;
+}
+.login-page .cardCompo {
+  width: 20rem;
+}
+.login-page .cardCompo .card-one {
+  order: 1;
+}
+.login-page .cardCompo .card-two .imgAstro {
+  position: relative;
+  animation: imgMove 4s infinite;
+  width: 200px;
+}
+
+@keyframes imgMove {
+  0% {
+    bottom: 40px;
+  }
+  25% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 40px;
+  }
+  75% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 40px;
+  }
+}
 body {
   background: #ddd;
 }/*# sourceMappingURL=main.css.map */

@@ -75,8 +75,28 @@ const CheckedToken = async (req,res) => {
     }
 }
 
+//chekced token
+const CheckedTokenLogin = async (req,res) => {
+    try{
+        const token = req.headers.authorization
+        if(!token){
+            return res.status(401).json({msg : 'Not Authorization'})
+        }
+
+        jwt.verify(token,secret,async(err,decoded) => {
+            if(err) {
+                return res.status(401).json({msg : 'Not Authorization'})
+            }
+
+            const decodedUser = decoded.username
+
+            res.status(200).json({msg : 'Success', decodedUser})
+        })
+    }catch(error) {
+        res.status(500).json({msg : 'Internal Server Error'})
+    }
+}
 
 
 
-
-module.exports = {VerifyUser,NewUser,GetUser,GetUserById,CheckedToken}
+module.exports = {VerifyUser,NewUser,GetUser,GetUserById,CheckedToken,CheckedTokenLogin}

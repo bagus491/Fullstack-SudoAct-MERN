@@ -97,7 +97,7 @@ const Login = (req,res) => {
             }
 
             res.cookie('token',token)
-            res.status(200).json({msg : 'Sucess', token})
+            res.status(200).json({msg : 'Sucess', token,username})
         })
     }catch(error){
         return res.status(500).json({msg : 'Internal Server Error'})
