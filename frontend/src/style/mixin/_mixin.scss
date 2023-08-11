@@ -1,0 +1,10 @@
+
+
+//flex-end
+@mixin FlexEnd($bg: none,$height: 50vh) {
+    background: $bg;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: $height;
+}

@@ -1,0 +1,121 @@
+.LandingPage-Load {
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 50vh;
+}
+.LandingPage-Load .LandingPage-text h1 {
+  animation: textAnimate 4s infinite;
+}
+.LandingPage-Load .LandingPage-text .bar-Landing {
+  animation: LoadBar 4s infinite;
+}
+
+@keyframes textAnimate {
+  0% {
+    font-size: 20px;
+  }
+  25% {
+    font-size: 40px;
+    text-shadow: 2px 2px aquamarine;
+  }
+  50% {
+    font-size: 60px;
+    text-shadow: 3px 3px aquamarine;
+  }
+  75% {
+    font-size: 80px;
+    text-shadow: 4px 4px aquamarine;
+  }
+  100% {
+    font-size: 100px;
+    text-shadow: 5px 5px aquamarine;
+  }
+}
+@keyframes LoadBar {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 25%;
+    background: #03c988;
+    height: 10px;
+  }
+  50% {
+    width: 50%;
+    background: #03c988;
+    height: 10px;
+  }
+  75% {
+    width: 75%;
+    background: #03c988;
+    height: 10px;
+  }
+  100% {
+    width: 100%;
+    background: #03c988;
+    height: 10px;
+  }
+}
+.Content-Landing .nav {
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  height: auto;
+}
+.Content-Landing .nav .nav-container {
+  width: 1100px;
+}
+.Content-Landing .nav .nav-container .nav-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.Content-Landing .nav .nav-container .nav-flex ul {
+  list-style: none;
+  display: flex;
+}
+.Content-Landing .nav .nav-container .nav-flex ul li {
+  margin-top: 5px;
+}
+.Content-Landing .nav .nav-container .nav-flex ul li .path {
+  color: grey;
+  font-size: 20px;
+  font-weight: bold;
+}
+.Content-Landing .nav .nav-container .nav-flex ul li .path:hover {
+  border-bottom: 1px solid #03c988;
+  color: aquamarine;
+  transition: 1s;
+}
+.Content-Landing .nav .nav-container .nav-flex .button-Landing {
+  margin-top: 10px;
+}
+.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-one {
+  margin-right: 10px;
+  border: 2px solid #03c988;
+  color: black;
+  background: white;
+}
+.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-one:hover {
+  background: #03c988;
+  transition: 1s;
+  color: white;
+}
+.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-two {
+  background: #03c988;
+  color: white;
+  border: 2px solid white;
+}
+.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-two:hover {
+  background: white;
+  transition: 1s;
+  border: 2px solid #03c988;
+  color: black;
+}
+
+body {
+  background: #ddd;
+}/*# sourceMappingURL=main.css.map */
