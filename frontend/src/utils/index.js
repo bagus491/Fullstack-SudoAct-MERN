@@ -41,3 +41,17 @@ body: formData
 
 return respone
 }
+
+
+
+//fetching
+export const CheckDasbord = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/dasbord/${username}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+
+    return respone
+}

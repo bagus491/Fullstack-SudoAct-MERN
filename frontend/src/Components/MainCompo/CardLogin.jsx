@@ -1,13 +1,15 @@
 import {Card,Form,Button} from 'react-bootstrap'
 import Astronout from '../../Assets/Astronout.png';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import {  useContext, useState } from 'react';
 
 import { doFetchLogin } from '../../utils';
+import { AuthContext } from '../../AuthContext';
 
 export const CardLogin = () => {
     const [username,setusername] = useState('')
     const [password,setpassword] = useState('')
+    const {setUserInfo} = useContext(AuthContext)
 
     const Navigate = useNavigate()
 
@@ -22,12 +24,14 @@ export const CardLogin = () => {
 
             alert('Welcome')
             localStorage.setItem('uL_', json.token)
+            setUserInfo(json)
             Navigate(`/dasbord/${json.username}`)
         }catch(error){
             console.error({msg : 'Error'})
             alert('Check Username or Password')
         }
     }
+
 
     return(
         <>
