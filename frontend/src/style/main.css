@@ -261,6 +261,20 @@
   align-items: center;
 }
 
+.Notepad-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Setting-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background: #ddd;
 }/*# sourceMappingURL=main.css.map */

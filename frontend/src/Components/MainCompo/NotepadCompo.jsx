@@ -1,18 +1,18 @@
 
 import { useEffect, useState } from "react"
-import { CheckWhistlist } from "../../utils"
+import { CheckNotepad } from "../../utils"
 import { useNavigate, useParams } from "react-router-dom"
 import { NavigationTwo } from "../Reusable/NavigationTwo"
-import { CardWs } from "../sub-compo/CardWs"
+import { CardNote } from "../sub-compo/CardNote"
 
-export const WhistlistCompo = () => {
+export const NotepadCompo = () => {
     const getToken = localStorage.getItem('uL_')
     const [getContent, setgetContent] = useState(true)
     const Navigate = useNavigate()
     const {username} = useParams()
     useEffect(() => {
         const CheckToken = async () => {
-            const respone = await CheckWhistlist(username,getToken)            
+            const respone = await CheckNotepad(username,getToken)            
             if(!respone.ok){
                 setgetContent(false)
                 Navigate('*')
@@ -27,7 +27,7 @@ export const WhistlistCompo = () => {
         getContent ?   
         <div>
             <NavigationTwo />
-            <CardWs />
+            <CardNote />
         </div>
          :
         

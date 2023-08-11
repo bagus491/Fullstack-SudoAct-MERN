@@ -55,3 +55,39 @@ export const CheckDasbord = async (username,getToken) => {
 
     return respone
 }
+
+//fetching
+export const CheckWhistlist = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/whistlist/${username}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+
+    return respone
+}
+
+//fetching
+export const CheckNotepad = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/notepad/${username}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+
+    return respone
+}
+
+//fetching
+export const CheckSetting = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/setting/${username}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+
+    return respone
+}
