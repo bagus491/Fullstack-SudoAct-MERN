@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express()
 //import
-const  {HomeWeb,LoginPages} = require('../Controllers/UserController')
-
+const  {HomeWeb} = require('../Controllers/UserController')
+const {CheckedToken} = require('../Utils/Verify')
 //Auth
 const Auth = require('../Auth/Auth')
 
 //router GET
 app.get('/',HomeWeb)
 //LoginPage
-app.get('/login',LoginPages)
+app.get('/login/:username',CheckedToken)
 
 
 
