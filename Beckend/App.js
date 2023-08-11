@@ -41,6 +41,9 @@ app.use(limiter({
 }))
 
 
+//db
+require('./src/Db/Db')
+
 //middlewareRouter
 app.use(UserRouter)
 
