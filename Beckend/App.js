@@ -2,7 +2,8 @@
 const express = require('express');
 const app  = express();
 const port =  5000;
-
+//import
+const  UserRouter = require('./src/Router/UserRouter')
 
 //Two-setup
 //middleware
@@ -34,15 +35,21 @@ app.use(morgan('dev'))
 //express-rate-limiter
 const limiter = require('express-rate-limit')
 app.use(limiter({
-    windowMS: 10*60*1000,// 10minutes
+    windowMS: 10 * 60 *1000,// 10minutes
     max: 100, // 100 request max
     message: {error: 'You Have Many Request'}
 }))
 
 
+//middlewareRouter
+app.use(UserRouter)
 
 
-
+//middleware pembatasan
+app.use('/',(req,res) => {
+    res.status(404)
+    res.send('404 NOT FOUND')
+})
 
 //first-setup
 app.listen(port,() => {
