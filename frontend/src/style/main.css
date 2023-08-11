@@ -116,6 +116,57 @@
   color: black;
 }
 
+.register-page {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 80vh;
+}
+.register-page .cardCompo {
+  width: 40rem;
+}
+.register-page .cardCompo .card-two .imgAstro {
+  position: relative;
+  animation: imgMove 4s infinite;
+  width: 300px;
+}
+
+@keyframes imgMove {
+  0% {
+    bottom: 40px;
+  }
+  25% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 40px;
+  }
+  75% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 40px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .register-page {
+    height: 99vh;
+    align-items: center;
+  }
+  .register-page .cardCompo {
+    width: 23rem;
+  }
+  .register-page .cardCompo .card-two .imgAstro {
+    width: 200px;
+  }
+  .CardBody {
+    flex-direction: column;
+  }
+  .card-one {
+    order: 1;
+  }
+}
 body {
   background: #ddd;
 }/*# sourceMappingURL=main.css.map */
