@@ -254,6 +254,13 @@
   align-items: center;
 }
 
+.whistlist-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background: #ddd;
 }/*# sourceMappingURL=main.css.map */
