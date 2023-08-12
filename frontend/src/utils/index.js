@@ -81,13 +81,12 @@ export const GetProfile = async(username,getToken) => {
 }
 
 //fetchingCardPost
-export const doFetchingProfile = async(username,Title,Profile,MyJob,Desc,getToken) => {
+export const doFetchingProfile = async(username,Profile,MyJob,Desc,getToken) => {
     const formData = new FormData()
-        formData.append('Title',Title)
-        formData.append('Profile',Profile)
+        formData.append('Profile',Profile[0])
         formData.append('MyJob',MyJob)
         formData.append('Desc',Desc)
-    const respone = await fetch(`http://localhost/dasbord/profile/${username}`,{
+    const respone = await fetch(`http://localhost:5000/dasbord/profile/${username}`,{
         method: 'post',
         body: formData,
         headers: {

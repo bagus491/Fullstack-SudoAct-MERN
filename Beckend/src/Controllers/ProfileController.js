@@ -32,8 +32,16 @@ const CheckProfile = async (req,res) => {
             if(!ProfileOk){
                 return res.status(203).json({msg : 'No Content'})
             }
+            
+            //destruction
+            const {MyJob,ImageType,ImageBuffer,Desc} = ProfileOk
+        
+            //changes
+            const ImageData = ImageBuffer.toString('base64')
+            const ImagePath = `data:${ImageType};base64,${ImageData}`
 
-            res.status(200).json({msg : 'Success'})
+            const data = [{decodedUser,ImagePath,MyJob,Desc}]
+            res.status(200).json({msg : 'Success', data})
         })
     }catch(error){
         res.status(500).json({msg : 'Internal Server Error'})

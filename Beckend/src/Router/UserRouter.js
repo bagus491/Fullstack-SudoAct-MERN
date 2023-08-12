@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const fs = require('fs')
 //import
 const  {HomeWeb,GetUpdateUser,GetDeleteUser} = require('../Controllers/UserController')
 const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Index')
@@ -12,31 +13,15 @@ const {GetWhislists,PostWhislist,UpdateWhislist,DeleteWhislist} = require('../Co
 //Notepad
 const {GetPad,GetDetailPad,GetPostPad,GetUpdatePad,GetDeletePad}  = require('../Controllers/NotepadController')
 
+const path = require('path')
 //multer
 const multer = require('multer')
+
 //storage
-const storage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null, '../public/Image/Uploads/Profile')
-    },
-    filename: function(req,file,cb){
-        cb(null,Date.now()+'-'+file.originalname)
-    }
-})
+const storage = multer.memoryStorage()
 
-//storageWhislist
-const WsStorage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null, '../public/Image/Uploads/Whislist')
-    },
-    filename: function(req,file,cb){
-        cb(null,Date.now()+'-'+file.originalname)
-    }
-})
+const Uploads = multer({storage: storage})
 
-const Uploads = multer({storage})
-//UploadsWs
-const UploadsWs = multer({storage: WsStorage})
 
 //router GET
 app.get('/',HomeWeb)
@@ -55,9 +40,9 @@ app.get('/whistlist/:username',CheckedToken)
 //WhistlistCard
 app.get('/whistlist/card/:username',GetWhislists)
 //postWhislist
-app.post('/whistlist/card/:username',UploadsWs.single('Avatar'),PostWhislist)
+app.post('/whistlist/card/:username',Uploads.single('Avatar'),PostWhislist)
 //updateWhist
-app.put('/whistlist/card/:username/:id',UploadsWs.single('Avatar'),UpdateWhislist)
+app.put('/whistlist/card/:username/:id',Uploads.single('Avatar'),UpdateWhislist)
 //delete
 app.delete('/whistlist/card/:username/:id',DeleteWhislist)
 
