@@ -61,6 +61,9 @@ const PostProfile = async(username,file,myjob,desc) => {
 }
 
 
+//modelsWhislist
+
+
 //jwt
 const jwt = require('jsonwebtoken')
 const secret = '!@#$%^&*()_+-=123}|45'

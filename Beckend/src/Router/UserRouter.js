@@ -6,7 +6,7 @@ const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Ve
 //Auth
 const Auth = require('../Auth/Auth')
 //ProfileControllers
-const {CheckProfile,PostProfile} = require('../Controllers/ProfileController')
+const {CheckProfile,ProfilePost} = require('../Controllers/ProfileController')
 
 //multer
 const multer = require('multer')
@@ -32,7 +32,7 @@ app.get('/dasbord/:username',CheckedToken)
 //Profile
 app.get('/dasbord/profile/:username',CheckProfile)
 //PostProfile
-app.post('/dasbord/profile/:username',Uploads.single('Profile'),PostProfile)
+app.post('/dasbord/profile/:username',Uploads.single('Profile'),ProfilePost)
 
 //whislist
 app.get('/whistlist/:username',CheckedToken)

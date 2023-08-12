@@ -42,7 +42,7 @@ const CheckProfile = async (req,res) => {
 
 
 //postProfile
-const PostProfile = async(req,res) => {
+const ProfilePost = async(req,res) => {
     try{
         const token = req.headers.authorization
         if(!token){
@@ -84,4 +84,4 @@ const PostProfile = async(req,res) => {
 
 
 
-module.exports = {CheckProfile,PostProfile}
+module.exports = {CheckProfile,ProfilePost}

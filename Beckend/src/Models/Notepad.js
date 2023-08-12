@@ -1,16 +1,15 @@
 const mongoose = require('mongoose')
 
 
-const ItemsSchema = new mongoose.Schema({
-    ImageName: String,
-    ImageType: String,
-    ImageBuffer: Buffer,
-    Count: String,
-    Desc: String,
+const NotepadSchema = new mongoose.Schema({
+    username: String,
+    Title: String,
+    Paragraf: String,
+    PostDate: String
 })
 
 
-const myitems = mongoose.model('myitems',ItemsSchema)
+const notepads = mongoose.model('notepads',NotepadSchema)
 
 
-module.exports = myitems
+module.exports = notepads
