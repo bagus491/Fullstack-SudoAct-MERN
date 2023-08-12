@@ -21,3 +21,7 @@ Content-Type: application/json
     "password":"Ramagendut21"
 }
 
+
+###
+GET http://localhost:5000/logout/baguskalam HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhZ3Vza2FsYW0iLCJpYXQiOjE2OTE4MDIxMjcsImV4cCI6MTY5MTgwNTcyN30.mGHDD7ygfmaA_JbvXvm_Heg5iy-2C3z1kydlD8eF3jA

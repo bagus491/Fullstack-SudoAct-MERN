@@ -24,6 +24,12 @@ app.get('/notepad/:username',CheckedToken)
 //setting
 app.get('/setting/:username',CheckedToken)
 
+//logout
+app.get('/logout/:username',CheckedToken,(req,res) => {
+    res.clearCookie('token','')
+    res.status(200).json({msg : 'Success'})
+})
+
 //RouterAuth
 app.use(Auth)
 
