@@ -1,4 +1,4 @@
-const {GetUser,getProfile,NewProfile} = require('../Utils/Verify')
+const {GetUser,getProfile,NewProfile,UpdateProfile,DeleteProfile} = require('../Utils/Verify')
 const {jwt,secret} = require('../Utils/Index')
 
 
@@ -82,6 +82,97 @@ const ProfilePost = async(req,res) => {
     }
 }
 
+//UpdateWs
+const GetUpdateProfile = async(req,res) => {
+    try{
+        const token = req.headers.authorization
+        if(!token){
+            return res.status(401).json({msg: 'Not Authorization'})
+        }
+
+        jwt.verify(token,secret,async(err,decoded) => {
+            if(err){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            const dataOk = await GetUser(req.params.username)
+            if(!dataOk){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            const decodedUser = decoded.username
+            if(dataOk.username !== decodedUser){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+           //checkData
+           const CheckProfile = await getProfile(decodedUser)
+
+            if(!CheckProfile){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            //destruction
+            const {MyJob,Desc} = req.body
+
+            //doUpdate
+            const doUpdate = await UpdateProfile(decodedUser,req.file,MyJob,Desc)
+            if(!doUpdate){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            res.status(204).json({msg : 'Success'})
+        })
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'})
+    }
+}
 
 
-module.exports = {CheckProfile,ProfilePost}
+//deleteWs
+const GetDeleteProfile = async(req,res) => {
+    try{
+        const token = req.headers.authorization
+        if(!token){
+            return res.status(401).json({msg: 'Not Authorization'})
+        }
+
+        jwt.verify(token,secret,async(err,decoded) => {
+            if(err){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            const dataOk = await GetUser(req.params.username)
+            if(!dataOk){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            const decodedUser = decoded.username
+            if(dataOk.username !== decodedUser){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+
+           //checkData
+           const CheckProfile = await getProfile(decodedUser)
+
+            if(!CheckProfile){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            //Delete
+            const Deleted = await DeleteProfile(CheckProfile.username)
+
+            if(!Deleted){
+                return res.status(401).json({msg: 'Not Authorization'})
+            }
+
+            res.status(204).json({msg : 'Success'})
+        })
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'})
+    }
+}
+
+
+module.exports = {CheckProfile,ProfilePost,GetUpdateProfile,GetDeleteProfile}
