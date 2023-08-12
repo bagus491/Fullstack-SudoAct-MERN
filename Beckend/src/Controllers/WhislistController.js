@@ -1,5 +1,5 @@
 //call
-const  {getWhist,NewWhist,UpdateWs,DeleteWs,GetUser, DeleteWs} = require('../Utils/Verify')
+const  {getWhist,NewWhist,UpdateWs,DeleteWs,GetUser,} = require('../Utils/Verify')
 //getToken
 const {jwt,secret} = require('../Utils/Index')
 
@@ -134,10 +134,10 @@ const UpdateWhislist = async(req,res) => {
 
             //destruction
             const {_id} = WhistOk
-            const {username,Count,Desc} = req.body
+            const {Count,Desc} = req.body
 
             //doUpdate
-            const doUpdate = await UpdateWs(_id,username,req.file,Count,Desc)
+            const doUpdate = await UpdateWs(_id,decodedUser,req.file,Count,Desc)
             if(!doUpdate){
                 return res.status(401).json({msg: 'Not Authorization'})
             }
