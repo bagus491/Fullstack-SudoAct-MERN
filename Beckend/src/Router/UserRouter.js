@@ -6,7 +6,7 @@ const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/In
 //Auth
 const Auth = require('../Auth/Auth')
 //ProfileControllers
-const {CheckProfile,ProfilePost} = require('../Controllers/ProfileController')
+const {CheckProfile,ProfilePost,GetUpdateProfile,GetDeleteProfile} = require('../Controllers/ProfileController')
 //Whistlist
 const {GetWhislists,PostWhislist,UpdateWhislist,DeleteWhislist} = require('../Controllers/WhislistController')
 //Notepad
@@ -85,6 +85,11 @@ app.get('/setting/:username',CheckedToken)
 app.put('/setting/update/user/:username',GetUpdateUser)
 //settinguser
 app.delete('/setting/delete/user/:username',GetDeleteUser)
+
+//settingupdateProfile
+app.put('/setting/update/profile/:username',GetUpdateProfile)
+//settingdeleteProfile
+app.delete('/setting/delete/profile/:username',GetDeleteProfile)
 
 //logout
 app.get('/logout/:username',CheckedTokenLogout)
