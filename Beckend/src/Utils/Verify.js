@@ -40,6 +40,27 @@ const GetUserById = async(id) => {
 } 
 
 
+//modelsProfile
+//checkProfile
+const Profile = require('../Models/Profile')
+
+const getProfile  = async(username) => {
+    return await Profile.findOne({username})
+}
+
+//postProfile
+const PostProfile = async(username,file,myjob,desc) => {
+    return new Profile({
+        username,
+        ImageName: file.filename,
+        ImageType: file.mimetype,
+        ImageBuffer: file.buffer,
+        MyJob: myjob,
+        Desc: desc,
+    })
+}
+
+
 //jwt
 const jwt = require('jsonwebtoken')
 const secret = '!@#$%^&*()_+-=123}|45'
@@ -129,4 +150,6 @@ const CheckedTokenLogout = async (req,res) => {
 }
 
 
-module.exports = {VerifyUser,NewUser,GetUser,GetUserById,CheckedToken,CheckedTokenLogin,CheckedTokenLogout}
+module.exports = {
+    VerifyUser,NewUser,GetUser,GetUserById,CheckedToken,CheckedTokenLogin,CheckedTokenLogout,jwt,secret,
+    getProfile,PostProfile}
