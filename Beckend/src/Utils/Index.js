@@ -1,3 +1,4 @@
+const {GetUser} = require('../Utils/Verify')
 //jwt
 const jwt = require('jsonwebtoken')
 const secret = '!@#$%^&*()_+-=123}|45'
