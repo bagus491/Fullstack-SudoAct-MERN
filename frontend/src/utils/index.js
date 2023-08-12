@@ -42,6 +42,19 @@ body: formData
 return respone
 }
 
+//fetching logout
+export const doFetchingLogout = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/logout/${username}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': getToken,
+        }
+        
+    })
+
+    return respone
+}
+
 
 
 //fetching

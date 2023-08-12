@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 //import
 const  {HomeWeb} = require('../Controllers/UserController')
-const {CheckedToken,CheckedTokenLogin} = require('../Utils/Verify')
+const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Verify')
 //Auth
 const Auth = require('../Auth/Auth')
 
@@ -25,10 +25,7 @@ app.get('/notepad/:username',CheckedToken)
 app.get('/setting/:username',CheckedToken)
 
 //logout
-app.get('/logout/:username',CheckedToken,(req,res) => {
-    res.clearCookie('token','')
-    res.status(200).json({msg : 'Success'})
-})
+app.get('/logout/:username',CheckedTokenLogout)
 
 //RouterAuth
 app.use(Auth)
