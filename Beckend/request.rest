@@ -1,13 +1,13 @@
-GET http://localhost:5000/login/baguskalam HTTP/1.1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhZ3Vza2FsYW0iLCJpYXQiOjE2OTE3MjU0NjYsImV4cCI6MTY5MTcyOTA2Nn0.NeC6FMjKmOBqsgbRDB3k9unHWBxP7Y1SWqjQCuof-Vs
+GET http://localhost:5000/ HTTP/1.1
+
 
 ###
 POST http://localhost:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "baguskalam",
-    "password": "Ramagendut21",
+    "username": "",
+    "password": "",
     "email":"bagus@gmail.com"
 }
 

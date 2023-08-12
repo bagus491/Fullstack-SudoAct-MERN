@@ -1,4 +1,4 @@
-const {jwt,secret,GetUser,getProfile,PostProfile} = require('../Utils/Verify')
+const {jwt,secret,GetUser,getProfile,NewProfile} = require('../Utils/Verify')
 
 
 
@@ -66,7 +66,7 @@ const ProfilePost = async(req,res) => {
 
             const {MyJob,Desc} = req.body
             //users
-            const newProfile = await PostProfile(decodedUser,req.file,MyJob,Desc)
+            const newProfile = NewProfile(decodedUser,req.file,MyJob,Desc)
 
             //saveProfile
             const saveProfile = await newProfile.save()

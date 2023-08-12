@@ -39,6 +39,27 @@ const GetUserById = async(id) => {
     return await Users.findOne({_id : id})
 } 
 
+//updateUser 
+const UpdateUser = async(username,password,email) => {
+    return await Users.updateOne(
+        {
+            username: username,
+        },
+        {
+            $set: {
+                username,
+                password,
+                email
+            }
+        }
+    )
+}
+
+//deletedUser
+const DeleteUser = async(username) => {
+    return await Users.deleteOne({username})
+}
+
 
 //modelsProfile
 //checkProfile
@@ -49,7 +70,7 @@ const getProfile  = async(username) => {
 }
 
 //postProfile
-const PostProfile = async(username,file,myjob,desc) => {
+const NewProfile = (username,file,myjob,desc) => {
     return new Profile({
         username,
         ImageName: file.filename,
@@ -60,8 +81,160 @@ const PostProfile = async(username,file,myjob,desc) => {
     })
 }
 
+//updateProfile
+const UpdateProfile = async (username,file,myjob,desc) => {
+    return await Profile.updateOne(
+        {
+            username: username
+        },
+        {
+            $set: {
+                username,
+                ImageName: file.filename,
+                ImageType: file.mimetype,
+                ImageBuffer: file.buffer,
+                MyJob: myjob,
+                Desc: desc,
+            }
+        }
+    )
+}
+
+//deletedProfile
+const DeleteProfile = async(username) => {
+    return await Profile.deleteOne({username})
+}
+
 
 //modelsWhislist
+const Whists = require('../Models/Whistlist')
+
+//getWhists ==> all
+const getWhist = async() => {
+    return await Whists.find()
+}
+
+//postWhits
+const NewWhist = (username,file,Count,Desc) => {
+    return new Whists({
+        username,
+        ImageName: file.filename,
+        ImageType: file.mimetype,
+        ImageBuffer: file.buffer,
+        Count,
+        Desc,
+    })
+}
+
+//updatewhist
+const UpdateWs = async (id,username,file,Count,Desc) => {
+    return await Whists.updateOne(
+        {
+            _id : id
+        },
+        {
+            $set: {
+                username,
+                ImageName: file.filename,
+                ImageType: file.mimetype,
+                ImageBuffer: file.buffer,
+                Count,
+                Desc,
+            }
+        }
+    )
+}
+
+//updateManyWhist
+const UpdateManyWs = async(username) => {
+    return await Whists.updateMany(
+        {
+            username: username
+        },
+        {
+            $set: {
+                username,
+            }
+        }
+    )
+}
+
+//deletewhist
+const DeleteWs = async(id) => {
+    return await Whists.deleteOne({_id: id})
+}
+
+//deleteMany
+const DeleteManyWs = async(username) => {
+    return await Whists.deleteMany({username})
+}
+
+
+//ModelNotepads
+const Notepad = require('../Models/Notepad')
+
+//getAllNotepad==> all
+const getPads = async() => {
+    return await Notepad.find()
+}
+
+//getDetailsNotepad
+const getDetailPad = async(id) => {
+    return await Notepad.findOne({_id: id})
+}
+
+//postWhits
+const NewPad = (username,Title,Paragraf,PostDate) => {
+    return new Whists({
+        username,
+        Title,
+        Paragraf,
+        PostDate
+    })
+}
+
+//updatewhist
+const UpdatePad = async (id,username,Title,Paragraf,PostDate) => {
+    return await Whists.updateOne(
+        {
+            _id : id
+        },
+        {
+            $set: {
+                username,
+                Title,
+                Paragraf,
+                PostDate
+            }
+        }
+    )
+}
+
+//update
+const UpdateManyPad = async(username) => {
+    return await Notepad.updateMany(
+        {
+            username: username
+        },
+        {
+            $set: {
+                username
+            }
+        }
+    )
+}
+
+//deletewhist
+const DeletePad = async(id) => {
+    return await Notepad.deleteOne({_id: id})
+}
+
+//deleteMANY
+const DeleteManyPad = async(username) => {
+    return await Notepad.deleteMany({username})
+}
+
+
 
 
 //jwt
@@ -155,4 +328,4 @@ const CheckedTokenLogout = async (req,res) => {
 
 module.exports = {
     VerifyUser,NewUser,GetUser,GetUserById,CheckedToken,CheckedTokenLogin,CheckedTokenLogout,jwt,secret,
-    getProfile,PostProfile}
+    getProfile,NewProfile}
