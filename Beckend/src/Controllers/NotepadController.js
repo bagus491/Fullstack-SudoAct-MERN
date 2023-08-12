@@ -131,7 +131,7 @@ const GetPostPad = async(req,res) => {
             res.status(201).json({msg : 'Success'})
         })
     }catch(error){
-        return res.status(401).json({msg: 'Not Authorization'})
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 
@@ -180,7 +180,7 @@ const GetUpdatePad = async(req,res) => {
             res.status(204).json({msg : 'Success'})
         })
     }catch(error){
-        return res.status(401).json({msg: 'Not Authorization'})
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 
@@ -226,7 +226,7 @@ const GetDeletePad = async(req,res) => {
             res.status(204).json({msg : 'Success'})
         })
     }catch(error){
-        return res.status(401).json({msg: 'Not Authorization'})
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 

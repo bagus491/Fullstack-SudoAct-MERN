@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 
 const WhistlistSchema = new mongoose.Schema({
     username: String,
+    Title: String,
     ImageName: String,
     ImageType: String,
     ImageBuffer: Buffer,

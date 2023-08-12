@@ -100,6 +100,20 @@ const UpdateProfile = async (username,file,myjob,desc) => {
     )
 }
 
+//updateName
+const UpdateProfileName = async(username) => {
+    return await Profile.updateOne(
+        {
+            username:username
+        },
+        {
+            $set: {
+                username,
+            }
+        }
+    )
+}
+
 //deletedProfile
 const DeleteProfile = async(username) => {
     return await Profile.deleteOne({username})
@@ -115,9 +129,10 @@ const getWhist = async() => {
 }
 
 //postWhits
-const NewWhist = (username,file,Count,Desc) => {
+const NewWhist = (username,Title,file,Count,Desc) => {
     return new Whists({
         username,
+        Title,
         ImageName: file.filename,
         ImageType: file.mimetype,
         ImageBuffer: file.buffer,
@@ -127,7 +142,7 @@ const NewWhist = (username,file,Count,Desc) => {
 }
 
 //updatewhist
-const UpdateWs = async (id,username,file,Count,Desc) => {
+const UpdateWs = async (id,username,Title,file,Count,Desc) => {
     return await Whists.updateOne(
         {
             _id : id
@@ -135,6 +150,7 @@ const UpdateWs = async (id,username,file,Count,Desc) => {
         {
             $set: {
                 username,
+                Title,
                 ImageName: file.filename,
                 ImageType: file.mimetype,
                 ImageBuffer: file.buffer,
@@ -240,4 +256,4 @@ const DeleteManyPad = async(username) => {
 module.exports = {
     VerifyUser,NewUser,GetUser,GetUserById,UpdateUser,DeleteUser,
     getProfile,NewProfile,UpdateProfile,DeleteProfile,getWhist,NewWhist,UpdateWs,UpdateManyWs,DeleteWs,DeleteManyWs,
-    getPads,getDetailPad,NewPad,UpdatePad,UpdateManyPad,DeletePad,DeleteManyPad}
+    getPads,getDetailPad,NewPad,UpdatePad,UpdateManyPad,DeletePad,DeleteManyPad,UpdateProfileName}

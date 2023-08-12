@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 //import
-const  {HomeWeb} = require('../Controllers/UserController')
+const  {HomeWeb,GetUpdateUser,GetDeleteUser} = require('../Controllers/UserController')
 const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Index')
 //Auth
 const Auth = require('../Auth/Auth')
@@ -80,6 +80,11 @@ app.delete('/notepad/card/:username/:id',GetDeletePad)
 
 //setting
 app.get('/setting/:username',CheckedToken)
+
+//settingupdate
+app.put('/setting/update/user/:username',GetUpdateUser)
+//settinguser
+app.delete('/setting/delete/user/:username',GetDeleteUser)
 
 //logout
 app.get('/logout/:username',CheckedTokenLogout)

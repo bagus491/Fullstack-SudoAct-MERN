@@ -42,13 +42,13 @@ const GetWhislists = async (req,res) => {
             //DecodedFoto
             const ArrayMap = await Promise.all(
                 NewArray.map((datas) => {
-                    const {username,ImageType,ImageBuffer,Count,Desc} = datas
+                    const {username,Title,ImageType,ImageBuffer,Count,Desc} = datas
 
                     //decodedFoto
                     const ImageChange = ImageBuffer.toString('base64')
                     const ImagePath = `data:${ImageType};base64,${ImageChange}`
 
-                    return {username,ImagePath,Count,Desc}
+                    return {username,Title,ImagePath,Count,Desc}
                 })
             )
 
@@ -83,8 +83,10 @@ const PostWhislist = async(req,res) => {
                 return res.status(401).json({msg: 'Not Authorization'})
             }
 
+            const {Title,Count,Desc} = req.body
+
             //SCHEMA
-            const PostWhist = NewWhist(decodedUser,req.file,Count,Desc)
+            const PostWhist = NewWhist(decodedUser,Title,req.file,Count,Desc)
 
             //savedPost
             const SaveWhist = await PostWhist.save()
@@ -134,10 +136,10 @@ const UpdateWhislist = async(req,res) => {
 
             //destruction
             const {_id} = WhistOk
-            const {Count,Desc} = req.body
+            const {Title,Count,Desc} = req.body
 
             //doUpdate
-            const doUpdate = await UpdateWs(_id,decodedUser,req.file,Count,Desc)
+            const doUpdate = await UpdateWs(_id,decodedUser,Title,req.file,Count,Desc)
             if(!doUpdate){
                 return res.status(401).json({msg: 'Not Authorization'})
             }
@@ -145,7 +147,7 @@ const UpdateWhislist = async(req,res) => {
             res.status(204).json({msg : 'Success'})
         })
     }catch(error){
-        return res.status(401).json({msg: 'Not Authorization'})
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 
@@ -194,7 +196,7 @@ const DeleteWhislist = async(req,res) => {
             res.status(204).json({msg : 'Success'})
         })
     }catch(error){
-        return res.status(401).json({msg: 'Not Authorization'})
+        res.status(500).json({msg : 'Internal Server Error'})
     }
 }
 
