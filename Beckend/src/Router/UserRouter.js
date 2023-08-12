@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 //import
 const  {HomeWeb} = require('../Controllers/UserController')
-const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Verify')
+const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Index')
 //Auth
 const Auth = require('../Auth/Auth')
 //ProfileControllers

@@ -1,5 +1,5 @@
-const {jwt,secret,GetUser,getProfile,NewProfile} = require('../Utils/Verify')
-
+const {GetUser,getProfile,NewProfile} = require('../Utils/Verify')
+const {jwt,secret} = require('../Utils/Index')
 
 
 //dasbordProfile
