@@ -1,4 +1,6 @@
 //fetching
+//axios
+import axios from 'axios'
 
 
 export const doFetchReg = async (username,password,email) => {
@@ -94,6 +96,62 @@ export const doFetchingProfile = async(username,Profile,MyJob,Desc,getToken) => 
         }
     })
 
+    return respone
+}
+
+//whistlist
+//GetWhislist
+export const GetWhislist = async (username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/whistlist/card/${username}`,{
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+    return respone
+}
+
+//doUploadWhilsit
+export const doUploadWhistlist = async (username,getToken,Title,Avatar,Count,Desc) => {
+    const formdata = new FormData()
+        formdata.append('Title',Title)
+        formdata.append('Avatar',Avatar[0])
+        formdata.append('Count',Count)
+        formdata.append('Desc',Desc)
+    const respone = await fetch(`http://localhost:5000/whistlist/card/${username}`,{
+        method: 'post',
+        body: formdata,
+        headers: {
+            'Authorization': getToken
+        }
+    })
+    return respone
+}
+
+//doUpdate
+export const doUpdateWhistlist = async (username,getToken,Title,Avatar,Count,Desc) => {
+    const formdata = new FormData()
+    formdata.append('Title',Title)
+    formdata.append('Avatar',Avatar[0])
+    formdata.append('Count',Count)
+    formdata.append('Desc',Desc)
+const respone = await fetch(`http://localhost:5000/whistlist/card/${username}`,{
+    method: 'put',
+    body: formdata,
+    headers: {
+        'Authorization': getToken
+    }
+})
+return respone
+}
+
+//delete
+export const doDeleteWhistlist = async (username,getToken,id) => {
+    const respone = await axios.delete(`http://localhost:5000/whistlist/card/${username}/${id}`,{
+        headers: {
+            'Authorization' : getToken
+        }
+    })
     return respone
 }
 
