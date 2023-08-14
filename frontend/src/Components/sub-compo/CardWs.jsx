@@ -36,8 +36,8 @@ export const CardWs = () => {
         const proms = window.confirm('yakin?')
         if(proms){
             try{
-                const respone = await doDeleteWhistlist(username,getToken,id)
-
+                 await doDeleteWhistlist(username,getToken,id)
+               
                 alert('success')
                 window.location.reload()
             }catch(error){
@@ -60,11 +60,12 @@ export const CardWs = () => {
                 }
 
                 if(respone.status === 203){
-                    setdataWhistlist(false)
-                }else{
+                    setwhistlist(true)
+                }
+
                     setdataWhistlist(true)
                     setwhistlist(json.data)
-                }
+                
 
             }catch(error){
                 console.error({msg : 'Error'})

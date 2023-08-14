@@ -201,7 +201,7 @@ const getDetailPad = async(id) => {
 
 //postWhits
 const NewPad = (username,Title,Paragraf,PostDate) => {
-    return new Whists({
+    return new Notepad({
         username,
         Title,
         Paragraf,
@@ -211,7 +211,7 @@ const NewPad = (username,Title,Paragraf,PostDate) => {
 
 //updatewhist
 const UpdatePad = async (id,username,Title,Paragraf,PostDate) => {
-    return await Whists.updateOne(
+    return await Notepad.updateOne(
         {
             _id : id
         },

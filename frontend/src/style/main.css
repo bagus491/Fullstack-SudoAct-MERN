@@ -417,11 +417,45 @@
     overflow: hidden;
   }
 }
-.Notepad-box {
-  height: 100vh;
+.Notepad-Button {
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.textarea-bg {
+  height: 70vh;
+  width: 100%;
+}
+
+.box-card {
+  justify-content: center;
+}
+.box-card .card-print {
+  width: 250px;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: white;
+  background: #272727;
+}
+.box-card .card-print:hover {
+  background: #8BE8E5;
+  transition: 1s;
+  color: black;
+}
+
+@media screen and (max-width: 576px) {
+  .box-card {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box-card {
+    justify-content: center;
+  }
+}
+.Notepad-box {
+  height: 100vh;
 }
 
 .Setting-box {

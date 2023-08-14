@@ -179,6 +179,70 @@ export const CheckNotepad = async (username,getToken) => {
     return respone
 }
 
+//fetcingetNotepad
+export const GetNotepad = async(username,getToken) => {
+    const respone = await fetch(`http://localhost:5000/notepad/card/${username}`,{
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+    return respone
+}
+
+//detailsNotepad
+export const GetDetailPad = async (username,getToken,id) => {
+    const respone = await fetch(`http://localhost:5000/notepad/card/detail/${username}/${id}`,{
+        method: 'GET',
+        headers: {
+            'Authorization': getToken
+        }
+    })
+    return respone
+}
+
+//post
+export const doFetchingNotepad = async (username,getToken,Title,Paragraf) => {
+            const formdata = new URLSearchParams()
+                    formdata.append('Title',Title)
+                    formdata.append('Paragraf',Paragraf)
+    const respone = await fetch(`http://localhost:5000/notepad/card/${username}`, {
+        method: 'post',
+        body: formdata ,
+        headers: {
+            'Authorization': getToken
+        }
+    })
+    return respone
+}
+
+//update
+export const doUpdateNotepad = async(username,getToken,id,Title,Paragraf) => {
+        const formdata = new FormData()
+                formdata.append('Title',Title)
+                formdata.append('Paragraf',Paragraf)
+const respone = await fetch(`http://localhost:5000/notepad/card/${username}/${id}`, {
+method: 'PUT',
+body: formdata  ,
+headers: {
+'Authorization': getToken
+        }
+})
+return respone
+}
+
+
+//delete
+export const doDeleteNotepad = async(username,getToken,id) =>{
+    const respone = await axios.delete(`http://localhost:5000/notepad/card/${username}/${id}`, {
+        headers: {
+            Authorization: getToken
+        }
+    })
+    return respone
+}
+
+//
 //fetching
 export const CheckSetting = async (username,getToken) => {
     const respone = await fetch(`http://localhost:5000/setting/${username}`, {

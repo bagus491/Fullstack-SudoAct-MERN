@@ -9,34 +9,34 @@ const GetPad = async (req,res) => {
     try{
         const token = req.headers.authorization
         if(!token){
-            return res.status(401).json({msg: 'Not Authorization'})
+            return res.status(401).json({msg: 'Not Authorization1'})
         }
 
         jwt.verify(token,secret,async(err,decoded) => {
             if(err){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization2'})
             }
 
             //checkdata
             const dataOk = await GetUser(req.params.username)
             if(!dataOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization3'})
             }
 
             //verifydata
             const decodedUser = decoded.username
             if(dataOk.username !== decodedUser){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization4'})
             }
 
             //arraywhists
-            const arrayWhists = await getPads()
+            const arrayPads = await getPads()
 
             //filterArray ==> username
-            const NewArray = arrayWhists.filter((e) => e.username === decodedUser)
+            const NewArray = arrayPads.filter((e) => e.username === decodedUser)
 
             if(typeof NewArray === 'undefined' || NewArray.length < 1){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(203).json({msg: 'Not Authorization5'})
             }
 
             res.status(200).json({msg : 'Success', data:NewArray})
@@ -95,22 +95,22 @@ const GetPostPad = async(req,res) => {
     try{
         const token = req.headers.authorization
         if(!token){
-            return res.status(401).json({msg: 'Not Authorization'})
+            return res.status(401).json({msg: 'Not Authorization1'})
         }
 
         jwt.verify(token,secret,async(err,decoded) => {
             if(err){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization2'})
             }
 
-            const dataOk = await GetUser()
+            const dataOk = await GetUser(req.params.username)
             if(!dataOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization3'})
             }
 
             const decodedUser = decoded.username
             if(dataOk.username !== decodedUser){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization4'})
             }   
 
             const {Title,Paragraf} = req.body
@@ -125,7 +125,7 @@ const GetPostPad = async(req,res) => {
             const SavePad = await PostPad.save()
 
             if(!SavePad){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization5'})
             }
 
             res.status(201).json({msg : 'Success'})

@@ -1,14 +1,51 @@
 
+.Notepad-Button {
+    display: flex;
+    justify-content: center;
+
+}
 
 
+.textarea-bg {
+    height: 70vh;
+    width: 100%;
+}
+
+.box-card {
+    justify-content: center;
+
+    & .card-print {
+        width: 250px;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-left: 20px;
+        color: white;
+        background: #272727;
+    }
+
+    & .card-print:hover {
+        background: #8BE8E5;
+        transition: 1s;
+        color: black;
+    }
+}
 
 
+@media screen and (max-width:576px){
+    .box-card{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:768px){
+    .box-card{
+        justify-content: center;
+    }
+}
 
 //box
 .Notepad-box {
     height: 100vh;
     // background: salmon;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
