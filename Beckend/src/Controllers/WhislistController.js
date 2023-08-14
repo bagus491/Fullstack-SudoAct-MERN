@@ -36,19 +36,19 @@ const GetWhislists = async (req,res) => {
             const NewArray = arrayWhists.filter((e) => e.username === decodedUser)
 
             if(typeof NewArray === 'undefined' || NewArray.length < 1){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(203).json({msg: 'No Content'})
             }
 
             //DecodedFoto
             const ArrayMap = await Promise.all(
                 NewArray.map((datas) => {
-                    const {username,Title,ImageType,ImageBuffer,Count,Desc} = datas
+                    const {_id,Title,ImageType,ImageBuffer,Count,Desc} = datas
 
                     //decodedFoto
                     const ImageChange = ImageBuffer.toString('base64')
                     const ImagePath = `data:${ImageType};base64,${ImageChange}`
 
-                    return {username,Title,ImagePath,Count,Desc}
+                    return {_id,Title,ImagePath,Count,Desc}
                 })
             )
 
@@ -73,7 +73,7 @@ const PostWhislist = async(req,res) => {
                 return res.status(401).json({msg: 'Not Authorization'})
             }
 
-            const dataOk = await GetUser()
+            const dataOk = await GetUser(req.params.username)
             if(!dataOk){
                 return res.status(401).json({msg: 'Not Authorization'})
             }
@@ -107,31 +107,34 @@ const UpdateWhislist = async(req,res) => {
     try{
         const token = req.headers.authorization
         if(!token){
-            return res.status(401).json({msg: 'Not Authorization'})
+            return res.status(401).json({msg: 'Not Authorization1'})
         }
 
         jwt.verify(token,secret,async(err,decoded) => {
             if(err){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization2'})
             }
 
             const dataOk = await GetUser(req.params.username)
             if(!dataOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization3'})
             }
 
             const decodedUser = decoded.username
             if(dataOk.username !== decodedUser){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization4'})
             }
 
             //checkWhist
             const arrayWhists = await getWhist()
+            
 
             //findOne by id params
-            const WhistOk = arrayWhists.find((e) => e._id === req.params.id)
+            const WhistOk = arrayWhists.find((e) => e._id == req.params.id)
+            console.log(WhistOk)
+            
             if(!WhistOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization5'})
             }
 
             //destruction
@@ -141,7 +144,7 @@ const UpdateWhislist = async(req,res) => {
             //doUpdate
             const doUpdate = await UpdateWs(_id,decodedUser,Title,req.file,Count,Desc)
             if(!doUpdate){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization6'})
             }
 
             res.status(204).json({msg : 'Success'})
@@ -157,22 +160,22 @@ const DeleteWhislist = async(req,res) => {
     try{
         const token = req.headers.authorization
         if(!token){
-            return res.status(401).json({msg: 'Not Authorization'})
+            return res.status(401).json({msg: 'Not Authorization1'})
         }
 
         jwt.verify(token,secret,async(err,decoded) => {
             if(err){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization2'})
             }
 
             const dataOk = await GetUser(req.params.username)
             if(!dataOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization3'})
             }
 
             const decodedUser = decoded.username
             if(dataOk.username !== decodedUser){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization4'})
             }
 
 
@@ -180,17 +183,17 @@ const DeleteWhislist = async(req,res) => {
             const arrayWhists = await getWhist()
 
             //find
-            const WhistOk = arrayWhists.find((e) => e._id === req.params.id)
+            const WhistOk = arrayWhists.find((e) => e._id == req.params.id)
 
             if(!WhistOk){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization5'})
             }
 
             //Delete
             const Deleted = await DeleteWs(WhistOk._id)
 
             if(!Deleted){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(401).json({msg: 'Not Authorization6'})
             }
 
             res.status(204).json({msg : 'Success'})

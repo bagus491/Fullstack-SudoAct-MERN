@@ -25,3 +25,13 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/logout/baguskalam HTTP/1.1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhZ3Vza2FsYW0iLCJpYXQiOjE2OTE4MDIxMjcsImV4cCI6MTY5MTgwNTcyN30.mGHDD7ygfmaA_JbvXvm_Heg5iy-2C3z1kydlD8eF3jA
+
+###
+PUT http://localhost:5000/whistlist/card/baguskalam/64d8a1b67358db2760b8f8b1 HTTP/1.1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhZ3Vza2FsYW0iLCJpYXQiOjE2OTE5MjE1NzMsImV4cCI6MTY5MTkyNTE3M30.W0Go6CvpgjlBATqd4vp2TiSa9Pz5lycuUZT4aA4IFuI
+
+
+{
+
+}

@@ -112,7 +112,7 @@ export const GetWhislist = async (username,getToken) => {
 }
 
 //doUploadWhilsit
-export const doUploadWhistlist = async (username,getToken,Title,Avatar,Count,Desc) => {
+export const doFetchWhistlist = async (username,getToken,Title,Avatar,Count,Desc) => {
     const formdata = new FormData()
         formdata.append('Title',Title)
         formdata.append('Avatar',Avatar[0])
@@ -129,14 +129,14 @@ export const doUploadWhistlist = async (username,getToken,Title,Avatar,Count,Des
 }
 
 //doUpdate
-export const doUpdateWhistlist = async (username,getToken,Title,Avatar,Count,Desc) => {
+export const doUpdateWhistlist = async (username,id,getToken,Title,Avatar,Count,Desc) => {
     const formdata = new FormData()
-    formdata.append('Title',Title)
-    formdata.append('Avatar',Avatar[0])
-    formdata.append('Count',Count)
-    formdata.append('Desc',Desc)
-const respone = await fetch(`http://localhost:5000/whistlist/card/${username}`,{
-    method: 'put',
+           formdata.append('Title',Title)
+           formdata.append('Avatar',Avatar[0])
+           formdata.append('Count',Count)
+           formdata.append('Desc',Desc)
+const respone = await fetch(`http://localhost:5000/whistlist/card/${username}/${id}`,{
+    method: 'PUT',
     body: formdata,
     headers: {
         'Authorization': getToken
@@ -149,7 +149,7 @@ return respone
 export const doDeleteWhistlist = async (username,getToken,id) => {
     const respone = await axios.delete(`http://localhost:5000/whistlist/card/${username}/${id}`,{
         headers: {
-            'Authorization' : getToken
+            Authorization: getToken
         }
     })
     return respone

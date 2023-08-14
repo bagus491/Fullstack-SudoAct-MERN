@@ -38,7 +38,7 @@ export const NavigationTwo  = () => {
 
     return(
         <>
-        <div className="side-nav">
+        <div className={SideBar ? 'side-nav': 'side-noActive'}>
             <div className={SideBar ? 'side-nav-active'  :  'side-nav-sub'}>
                 <div className='side-nav-flex text-center' style={{width: '100%'}}>
                 <br></br>

@@ -1,7 +1,32 @@
 
 
 
+.Whistlist-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+    // background: brown;
 
+    & h1 {
+        font-family: cursive;
+    }
+    & .whistlist-modal {
+        & .button-modal{
+            background: white;
+            border: none;
+            transition: 1s;
+            color: black;
+            border: 1px solid #03c988;
+        }
+
+        & .button-modal:hover {
+            background: #03c988;
+            color: white;
+        }
+    }
+}
 
 
 
@@ -10,7 +35,43 @@
 .whistlist-box {
     height: 100vh;
     // background: salmon;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    & .whistlist-card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        & .card {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:576px){
+    .whistlist-box {
+        height: 100vh;
+        // background: salmon;
+        & .whistlist-card{
+            justify-content: center;
+
+            & .card {
+                margin-top: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    .whistlist-box {
+        height: 100vh;
+        // background: salmon;
+        & .whistlist-card{
+            justify-content: center;
+
+            & .card {
+                margin-top: 20px;
+                overflow: hidden;
+            }
+        }
+    }
 }
