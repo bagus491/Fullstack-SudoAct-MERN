@@ -85,9 +85,9 @@ export const GetProfile = async(username,getToken) => {
 //fetchingCardPost
 export const doFetchingProfile = async(username,Profile,MyJob,Desc,getToken) => {
     const formData = new FormData()
-        formData.append('Profile',Profile[0])
-        formData.append('MyJob',MyJob)
-        formData.append('Desc',Desc)
+            formData.append('Profile',Profile[0])
+            formData.append('MyJob',MyJob)
+            formData.append('Desc',Desc)
     const respone = await fetch(`http://localhost:5000/dasbord/profile/${username}`,{
         method: 'post',
         body: formData,
@@ -252,5 +252,48 @@ export const CheckSetting = async (username,getToken) => {
         }
     })
 
+    return respone
+}
+
+
+
+//delete
+export const doDeleteUser = async(username,getToken) =>{
+    const respone = await axios.delete(`http://localhost:5000/setting/delete/user/${username}`, {
+        headers: {
+            Authorization: getToken
+        }
+    })
+    return respone
+}
+
+
+//updateprofile
+
+//fetchingCardPost
+export const doUpdateProfile = async(username,Profile,MyJob,Desc,getToken) => {
+        const formData = new FormData()
+             formData.append('Profile',Profile[0])
+             formData.append('MyJob',MyJob)
+             formData.append('Desc',Desc)
+    const respone = await fetch(`http://localhost:5000/setting/update/profile/${username}`,{
+        method: 'PUT',
+        body: formData,
+        headers: {
+            'Authorization': getToken
+        }
+    })
+
+    return respone
+}
+
+
+//delete
+export const doDeleteProfile = async(username,getToken) =>{
+    const respone = await axios.delete(`http://localhost:5000/setting/delete/profile/${username}`, {
+        headers: {
+            Authorization: getToken
+        }
+    })
     return respone
 }

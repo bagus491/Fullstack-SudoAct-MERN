@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
-const fs = require('fs')
+
 //import
-const  {HomeWeb,GetUpdateUser,GetDeleteUser} = require('../Controllers/UserController')
+const  {HomeWeb,GetDeleteUser} = require('../Controllers/UserController')
 const {CheckedToken,CheckedTokenLogin,CheckedTokenLogout} = require('../Utils/Index')
 //Auth
 const Auth = require('../Auth/Auth')
@@ -13,7 +13,8 @@ const {GetWhislists,PostWhislist,UpdateWhislist,DeleteWhislist} = require('../Co
 //Notepad
 const {GetPad,GetDetailPad,GetPostPad,GetUpdatePad,GetDeletePad}  = require('../Controllers/NotepadController')
 
-const path = require('path')
+
+
 //multer
 const multer = require('multer')
 
@@ -66,13 +67,12 @@ app.delete('/notepad/card/:username/:id',GetDeletePad)
 //setting
 app.get('/setting/:username',CheckedToken)
 
-//settingupdate
-app.put('/setting/update/user/:username',GetUpdateUser)
+//deleted UserUpdate
 //settinguser
 app.delete('/setting/delete/user/:username',GetDeleteUser)
 
 //settingupdateProfile
-app.put('/setting/update/profile/:username',GetUpdateProfile)
+app.put('/setting/update/profile/:username',Uploads.single('Profile'),GetUpdateProfile)
 //settingdeleteProfile
 app.delete('/setting/delete/profile/:username',GetDeleteProfile)
 

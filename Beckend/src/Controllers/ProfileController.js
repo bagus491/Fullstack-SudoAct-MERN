@@ -129,7 +129,7 @@ const GetUpdateProfile = async(req,res) => {
                 return res.status(401).json({msg: 'Not Authorization'})
             }
 
-            res.status(204).json({msg : 'Success'})
+            res.status(200).json({msg : 'Success'})
         })
     }catch(error){
         res.status(500).json({msg : 'Internal Server Error'})

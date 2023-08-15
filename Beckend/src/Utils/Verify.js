@@ -39,21 +39,7 @@ const GetUserById = async(id) => {
     return await Users.findOne({_id : id})
 } 
 
-//updateUser 
-const UpdateUser = async(username,password,email) => {
-    return await Users.updateOne(
-        {
-            username: username,
-        },
-        {
-            $set: {
-                username,
-                password,
-                email
-            }
-        }
-    )
-}
+
 
 //deletedUser
 const DeleteUser = async(username) => {
@@ -161,19 +147,6 @@ const UpdateWs = async (id,username,Title,file,Count,Desc) => {
     )
 }
 
-//updateManyWhist
-const UpdateManyWs = async(username) => {
-    return await Whists.updateMany(
-        {
-            username: username
-        },
-        {
-            $set: {
-                username,
-            }
-        }
-    )
-}
 
 //deletewhist
 const DeleteWs = async(id) => {
@@ -226,19 +199,6 @@ const UpdatePad = async (id,username,Title,Paragraf,PostDate) => {
     )
 }
 
-//update
-const UpdateManyPad = async(username) => {
-    return await Notepad.updateMany(
-        {
-            username: username
-        },
-        {
-            $set: {
-                username
-            }
-        }
-    )
-}
 
 //deletewhist
 const DeletePad = async(id) => {
@@ -254,6 +214,6 @@ const DeleteManyPad = async(username) => {
 
 
 module.exports = {
-    VerifyUser,NewUser,GetUser,GetUserById,UpdateUser,DeleteUser,
-    getProfile,NewProfile,UpdateProfile,DeleteProfile,getWhist,NewWhist,UpdateWs,UpdateManyWs,DeleteWs,DeleteManyWs,
-    getPads,getDetailPad,NewPad,UpdatePad,UpdateManyPad,DeletePad,DeleteManyPad,UpdateProfileName}
+    VerifyUser,NewUser,GetUser,GetUserById,DeleteUser,
+    getProfile,NewProfile,UpdateProfile,DeleteProfile,getWhist,NewWhist,UpdateWs,DeleteWs,DeleteManyWs,
+    getPads,getDetailPad,NewPad,UpdatePad,DeletePad,DeleteManyPad,UpdateProfileName}

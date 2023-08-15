@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { NavigationTwo } from "../Reusable/NavigationTwo"
 import { CardSetting } from "../sub-compo/CardSetting"
 
-export const NotepadCompo = () => {
+export const SettingCompo = () => {
     const getToken = localStorage.getItem('uL_')
     const [getContent, setgetContent] = useState(true)
     const Navigate = useNavigate()

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import {AuthContext} from '../AuthContext'
 import { Spinner,Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { NotepadCompo } from "../Components/MainCompo/NotepadCompo"
+import { SettingCompo } from "../Components/MainCompo/SettingCompo"
 
 
 export const  SettingPage = () => {
@@ -31,7 +31,7 @@ export const  SettingPage = () => {
             <div className="Page-Spinner" style={{height: '40vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', }}>
                 <Spinner animation="grow" variant="info" />
             </div> 
-            </Container>     : <NotepadCompo />
+            </Container>     : <SettingCompo />
         }
        
         </>
