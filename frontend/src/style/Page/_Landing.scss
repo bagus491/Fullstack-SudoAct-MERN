@@ -68,6 +68,9 @@
 
 .Content-Landing {
     & .bg-text {
+        background: url(../Assets/rm429-094-removebg-preview.png);
+        object-fit: cover;
+        height: 100vh;
         .btn-one {
             margin-right: 10px;
             border: 2px solid #03c988;

@@ -58,6 +58,12 @@
     height: 10px;
   }
 }
+.Content-Landing .bg-text {
+  background: url(../Assets/rm429-094-removebg-preview.png);
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+}
 .Content-Landing .bg-text .btn-one {
   margin-right: 10px;
   border: 2px solid #03c988;
