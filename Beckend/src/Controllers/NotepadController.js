@@ -74,14 +74,14 @@ const GetDetailPad = async(req,res) => {
 
            //checkData
            const CheckNote = await getDetailPad(req.params.id)
-
+            
             if(!CheckNote){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(203).json({msg: 'Not Authorization'})
             }
 
             //spreadOpertor
-            const data = [...CheckNote]
-
+            const data = [CheckNote]
+          
             res.status(200).json({msg : 'Success',data })
 
         })
@@ -160,9 +160,9 @@ const GetUpdatePad = async(req,res) => {
 
            //checkData
            const CheckNote = await getDetailPad(req.params.id)
-
+    
             if(!CheckNote){
-                return res.status(401).json({msg: 'Not Authorization'})
+                return res.status(203).json({msg: 'Not Authorization'})
             }
 
             //destruction
@@ -177,7 +177,7 @@ const GetUpdatePad = async(req,res) => {
                 return res.status(401).json({msg: 'Not Authorization'})
             }
 
-            res.status(204).json({msg : 'Success'})
+            res.status(200).json({msg : 'Success'})
         })
     }catch(error){
         res.status(500).json({msg : 'Internal Server Error'})

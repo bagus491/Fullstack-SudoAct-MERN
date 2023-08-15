@@ -4,6 +4,7 @@ import {DasbordPage} from '../src/Pages/DasbordPage'
 import {LandingPage} from '../src/Pages/LandingPage'
 import {LoginPage} from '../src/Pages/LoginPage'
 import {NotepadPage} from '../src/Pages/NotepadPage'
+import { NotepadDetail } from './Pages/NotepadDetail'
 import {RegisterPage} from '../src/Pages/RegisterPage'
 import {SettingPage} from '../src/Pages/SettingPage'
 import {WhislistPage} from '../src/Pages/WhislistPage'
@@ -24,6 +25,7 @@ function App() {
         <Route path='/dasbord/:username' element={<DasbordPage />}></Route>
         <Route path='/whistlist/:username' element={<WhislistPage />}></Route>
         <Route path='/notepad/:username' element={<NotepadPage />}></Route>
+        <Route path='/notepad/:username/:id' element={<NotepadDetail />}></Route>
         <Route path='/setting/:username' element={<SettingPage />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>

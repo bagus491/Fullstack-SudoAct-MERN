@@ -2,7 +2,7 @@ import { Container,Button,Card,Spinner } from "react-bootstrap"
 import '../../style/main.css'
 import { useEffect, useState } from "react"
 import {useParams} from 'react-router-dom'
-import { GetNotepad } from "../../utils"
+import { GetNotepad,doDeleteNotepad } from "../../utils"
 import { useNavigate } from "react-router-dom"
 import { ModalNotepad } from "../Reusable/ModalNotepad"
 
@@ -16,6 +16,27 @@ export const CardNote = () => {
 
     const handleClose = () => setshow(false)
     const handleOpen = () => setshow(true)
+
+    const doFetch = async (id) => {
+        const confirmP = window.confirm('yakin?')
+        
+        if(confirmP){
+            try{
+                const respone = await doDeleteNotepad(username,getToken,id)
+    
+                if(!respone){
+                    Navigate('*')
+                }
+    
+                alert('success')
+                window.location.reload()
+            }catch(error){
+                console.error(error)
+            }
+        }else{
+            console.warn('Not Authorization')
+        }
+    }
 
     useEffect(() => {
         const doFetch = async() => {
@@ -65,7 +86,8 @@ export const CardNote = () => {
                           <Card.Text>
                           {e.Paragraf}
                           </Card.Text>
-                          <Button style={{background: '#03c988', border: 'none'}}>Read More</Button>
+                          <Button style={{background: '#03c988', border: 'none', marginRight: '10px'}} onClick={() => Navigate(`/notepad/${e.username}/${e._id}`)}>Read More</Button>
+                          <Button variant="danger" onClick={() => doFetch(e._id)}>Delete</Button>
                         </Card.Body>
                       </Card>
                     ))

@@ -218,7 +218,7 @@ export const doFetchingNotepad = async (username,getToken,Title,Paragraf) => {
 
 //update
 export const doUpdateNotepad = async(username,getToken,id,Title,Paragraf) => {
-        const formdata = new FormData()
+        const formdata = new URLSearchParams()
                 formdata.append('Title',Title)
                 formdata.append('Paragraf',Paragraf)
 const respone = await fetch(`http://localhost:5000/notepad/card/${username}/${id}`, {
