@@ -12,7 +12,7 @@ export const NotFoundPage = () => {
         </div>
         <div class="text">
         <h1>404</h1>
-        <h2>PAGE NOT FOUND</h2>
+        <h2 style={{color: '#ffff'}}>PAGE NOT FOUND</h2>
         </div>
     </section>
         </div>

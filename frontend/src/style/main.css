@@ -58,58 +58,23 @@
     height: 10px;
   }
 }
-.Content-Landing .nav {
-  width: 100%;
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  height: auto;
-}
-.Content-Landing .nav .nav-container {
-  width: 1100px;
-}
-.Content-Landing .nav .nav-container .nav-flex {
-  display: flex;
-  justify-content: space-between;
-}
-.Content-Landing .nav .nav-container .nav-flex ul {
-  list-style: none;
-  display: flex;
-}
-.Content-Landing .nav .nav-container .nav-flex ul li {
-  margin-top: 5px;
-}
-.Content-Landing .nav .nav-container .nav-flex ul li .path {
-  color: grey;
-  font-size: 20px;
-  font-weight: bold;
-}
-.Content-Landing .nav .nav-container .nav-flex ul li .path:hover {
-  border-bottom: 1px solid #03c988;
-  color: aquamarine;
-  transition: 1s;
-}
-.Content-Landing .nav .nav-container .nav-flex .button-Landing {
-  margin-top: 10px;
-}
-.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-one {
+.Content-Landing .bg-text .btn-one {
   margin-right: 10px;
   border: 2px solid #03c988;
   color: black;
   background: white;
 }
-.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-one:hover {
+.Content-Landing .bg-text .btn-one:hover {
   background: #03c988;
   transition: 1s;
   color: white;
 }
-.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-two {
+.Content-Landing .bg-text .btn-two {
   background: #03c988;
   color: white;
   border: 2px solid white;
 }
-.Content-Landing .nav .nav-container .nav-flex .button-Landing .btn-two:hover {
+.Content-Landing .bg-text .btn-two:hover {
   background: white;
   transition: 1s;
   border: 2px solid #03c988;
@@ -507,7 +472,6 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Press Start 2P";
-  color: #FFFFFF;
   text-align: center;
 }
 
